@@ -23,5 +23,23 @@ variable "enable_classiclink_dns_support" {
   default = "false"
 }
 variable "preferred_number_of_public_subnets" {
-  default = 2
+  type = number
+  description = "number of public subnets"
 }
+
+variable "preferred_number_of_private_subnets" {
+    type = number
+  description = "number of private subnets"
+}
+
+variable "name" {
+  type    = string
+  default = "ACS"
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to all resources."
+  type        = map(string)
+  default     = {}
+}
+
