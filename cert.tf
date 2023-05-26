@@ -4,6 +4,10 @@
 resource "aws_acm_certificate" "teaguejobs" {
   domain_name       = "*.teaguejobs.com.ng"
   validation_method = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 # calling the hosted zone

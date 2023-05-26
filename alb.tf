@@ -14,7 +14,7 @@ resource "aws_lb" "ext-alb" {
     aws_subnet.public[1].id
   ]
 
-   tags = merge(
+  tags = merge(
     var.tags,
     {
       Name = "ACS-ext-alb"
@@ -74,7 +74,7 @@ resource "aws_lb" "ialb" {
     aws_subnet.private[1].id
   ]
 
- tags = merge(
+  tags = merge(
     var.tags,
     {
       Name = "ACS-int-alb"
@@ -118,7 +118,7 @@ resource "aws_lb_target_group" "tooling-tgt" {
     unhealthy_threshold = 2
   }
 
-  name        = "david-tooling-tgt"
+  name        = "tooling-tgt"
   port        = 443
   protocol    = "HTTPS"
   target_type = "instance"

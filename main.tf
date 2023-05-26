@@ -16,7 +16,7 @@ resource "aws_vpc" "main" {
   enable_classiclink             = var.enable_classiclink
   enable_classiclink_dns_support = var.enable_dns_support
 
-   tags = merge(
+  tags = merge(
     var.tags,
     {
       Name = format("%s-VPC", var.name)
@@ -33,7 +33,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
   availability_zone       = data.aws_availability_zones.available.names[count.index]
 
- tags = merge(
+  tags = merge(
     var.tags,
     {
       Name = format("%s-PublicSubnet-%s", var.name, count.index)
@@ -49,7 +49,7 @@ resource "aws_subnet" "private" {
   map_public_ip_on_launch = true
   availability_zone       = data.aws_availability_zones.available.names[count.index]
 
-tags = merge(
+  tags = merge(
     var.tags,
     {
       Name = format("%s-PrivateSubnet-%s", var.name, count.index)
